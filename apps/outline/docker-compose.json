@@ -1,0 +1,135 @@
+{
+  "services": [
+    {
+      "name": "outline",
+      "image": "outlinewiki/outline:0.84.0",
+      "environment": {
+        "DATABASE_URL": "postgres://outline:${OUTLINE_PG_PASSWORD}@outline-postgres:5432/outline",
+        "REDIS_URL": "redis://outline-redis:6379",
+        "SECRET_KEY": "${OUTLINE_SECRET_KEY}",
+        "UTILS_SECRET": "${OUTLINE_UTILS_SECRET}",
+        "URL": "https://${APP_DOMAIN}",
+        "FORCE_HTTPS": "false",
+        "FILE_STORAGE": "local",
+        "FILE_STORAGE_UPLOAD_MAX_SIZE": "${FILE_STORAGE_UPLOAD_MAX_SIZE}",
+        "DEFAULT_LANGUAGE": "${DEFAULT_LANGUAGE}",
+        "PGSSLMODE": "disable",
+        "OIDC_CLIENT_ID": "${OUTLINE_OIDC_CLID}",
+        "OIDC_CLIENT_SECRET": "${OUTLINE_OIDC_CLKEY}",
+        "OIDC_AUTH_URI": "https://${APP_DOMAIN}/uc/oauth/authorize/",
+        "OIDC_TOKEN_URI": "http://outline-oidc:8000/oauth/token/",
+        "OIDC_USERINFO_URI": "http://outline-oidc:8000/oauth/userinfo/",
+        "OIDC_USERNAME_CLAIM": "preferred_username",
+        "OIDC_DISPLAY_NAME": "OpenID",
+        "OIDC_SCOPES": "openid profile email"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/outline",
+          "containerPath": "/var/lib/outline/data",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ],
+      "dependsOn": {
+        "outline-postgres": {
+          "condition": "service_started"
+        },
+        "outline-redis": {
+          "condition": "service_started"
+        }
+      }
+    },
+    {
+      "name": "outline-postgres",
+      "image": "postgres:16.9-alpine",
+      "environment": {
+        "POSTGRES_USER": "outline",
+        "POSTGRES_PASSWORD": "${OUTLINE_PG_PASSWORD}",
+        "POSTGRES_DB": "outline"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/postgresql/data",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ]
+    },
+    {
+      "name": "outline-redis",
+      "image": "redis:8.0.1-alpine"
+    },
+    {
+      "name": "outline-oidc",
+      "image": "ghcr.io/sergi0g/oidc-provider:v0.2.0",
+      "environment": {
+        "LANGUAGE_CODE": "en-us",
+        "TIME_ZONE": "UTC",
+        "FORCE_SCRIPT_NAME": "/uc",
+        "SECRET_KEY": "${OUTLINE_OIDC_SECRET}",
+        "DJANGO_SUPERUSER_PASSWORD": "${OUTLINE_PASSWORD}",
+        "DJANGO_SUPERUSER_USERNAME": "${OUTLINE_USER}",
+        "DJANGO_SUPERUSER_EMAIL": "user@outline.localhost",
+        "INITIAL_DATA": "oidc-config.json",
+        "DOMAIN": "https://${APP_DOMAIN}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/oidc-config.json",
+          "containerPath": "/app/oidc-config.json",
+          "readOnly": true,
+          "shared": false,
+          "private": false
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/uc/db",
+          "containerPath": "/app/db",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/uc/static_root",
+          "containerPath": "/app/static_root",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ]
+    },
+    {
+      "name": "outline-reverse-proxy",
+      "image": "nginx:alpine",
+      "internalPort": 80,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/nginx/",
+          "containerPath": "/etc/nginx/conf.d/",
+          "readOnly": true,
+          "shared": false,
+          "private": false
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/uc/static_root",
+          "containerPath": "/uc/static_root",
+          "readOnly": true,
+          "shared": false,
+          "private": false
+        }
+      ],
+      "dependsOn": {
+        "outline": {
+          "condition": "service_started"
+        },
+        "outline-oidc": {
+          "condition": "service_started"
+        }
+      },
+      "isMain": true
+    }
+  ]
+}
