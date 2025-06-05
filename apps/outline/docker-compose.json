@@ -61,7 +61,7 @@
     },
     {
       "name": "outline-redis",
-      "image": "redis:8.0.1-alpine"
+      "image": "redis:8.0.2-alpine"
     },
     {
       "name": "outline-oidc",

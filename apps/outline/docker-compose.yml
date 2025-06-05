@@ -49,7 +49,7 @@ services:
       runtipi.managed: true
   outline-redis:
     container_name: outline-redis
-    image: redis:8.0.1-alpine
+    image: redis:8.0.2-alpine
     restart: unless-stopped
     networks:
       - tipi_main_network
