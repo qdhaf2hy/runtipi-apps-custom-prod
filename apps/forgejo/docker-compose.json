@@ -25,11 +25,6 @@
           "private": false
         }
       ],
-      "dependsOn": {
-        "forgejo-db": {
-          "condition": "service_started"
-        }
-      },
       "isMain": true
     }
   ]

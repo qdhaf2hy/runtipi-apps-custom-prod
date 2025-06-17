@@ -12,9 +12,7 @@ services:
       - ${APP_DATA_DIR}/data/forgejo:/data
     ports:
       - ${APP_PORT}:3000
-      - '222:22'
-    depends_on:
-      - forgejo-db
+      - "222:22"
     networks:
       - tipi_main_network
     labels:
