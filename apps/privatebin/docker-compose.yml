@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   privatebin:
-    image: privatebin/nginx-fpm-alpine:1.7.6
+    image: privatebin/nginx-fpm-alpine:2.0.0
     container_name: privatebin
     dns:
       - ${DNS_IP}
