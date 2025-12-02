@@ -31,5 +31,6 @@
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1748143693237,
   "updated_at": 1749725024494,
-  "$schema": "../app-info-schema.json"
+  "$schema": "../app-info-schema.json",
+  "min_tipi_version": "4.5.0"
 }

@@ -3,12 +3,23 @@
     {
       "name": "pangolin-newt-client",
       "image": "fosrl/newt:1.6.0",
-      "environment": {
-        "PANGOLIN_ENDPOINT": "${PANGOLIN_ENDPOINT}",
-        "NEWT_ID": "${NEWT_ID}",
-        "NEWT_SECRET": "${NEWT_SECRET}"
-      },
+      "environment": [
+        {
+          "key": "PANGOLIN_ENDPOINT",
+          "value": "${PANGOLIN_ENDPOINT}"
+        },
+        {
+          "key": "NEWT_ID",
+          "value": "${NEWT_ID}"
+        },
+        {
+          "key": "NEWT_SECRET",
+          "value": "${NEWT_SECRET}"
+        }
+      ],
       "networkMode": "host"
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

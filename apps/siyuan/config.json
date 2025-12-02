@@ -39,5 +39,6 @@
   "uid": 1000,
   "gid": 1000,
   "created_at": 1747872863419,
-  "updated_at": 1747872863419
+  "updated_at": 1747872863419,
+  "min_tipi_version": "4.5.0"
 }

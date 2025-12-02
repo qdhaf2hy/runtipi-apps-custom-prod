@@ -1,5 +1,4 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
       "name": "privatebin",
@@ -13,5 +12,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "../dynamic-compose-schema.json",
 }

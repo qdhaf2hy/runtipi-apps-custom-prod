@@ -3,10 +3,17 @@
     {
       "name": "forgejo",
       "image": "codeberg.org/forgejo/forgejo:13.0.3",
-      "environment": {
-        "USER_UID": "1000",
-        "USER_GID": "1000"
-      },
+      "isMain": true,
+      "environment": [
+        {
+          "key": "USER_UID",
+          "value": "1000"
+        },
+        {
+          "key": "USER_GID",
+          "value": "1000"
+        }
+      ],
       "internalPort": 3000,
       "addPorts": [
         {
@@ -24,8 +31,9 @@
           "shared": false,
           "private": false
         }
-      ],
-      "isMain": true
+      ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

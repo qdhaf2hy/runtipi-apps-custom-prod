@@ -16,5 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1748340933545,
-  "updated_at": 1750301304133
+  "updated_at": 1750301304133,
+  "min_tipi_version": "4.5.0"
 }

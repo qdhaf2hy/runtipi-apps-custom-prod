@@ -7,5 +7,6 @@
       "internalPort": 80
     }
   ],
+  "schemaVersion": 2,
   "$schema": "../dynamic-compose-schema.json"
 }
