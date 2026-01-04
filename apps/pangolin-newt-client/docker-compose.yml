@@ -2,7 +2,7 @@ version: "3.9"
 services:
   pangolin-newt-client:
     container_name: pangolin-newt-client
-    image: fosrl/newt:1.7.0
+    image: fosrl/newt:1.8.1
     restart: unless-stopped
     network_mode: host
     environment:
