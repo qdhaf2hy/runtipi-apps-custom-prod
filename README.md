@@ -9,10 +9,10 @@ This is my own [Runtipi](https://runtipi.io/) appstore. Some are custom apps (no
 > **USE AT YOUR OWN RISK!!!**
 
 
-## Apps available (16)
+## Apps available (3)
 
 |  Type  |  Name  |  Docker image version  |  Description  |  Port  |  Has dynamic file  |  Notes  |
 | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
-| Custom app  | [Pangolin Newt client](https://github.com/fosrl/newt)  |  1.8.1 | Connect your site (machine) to your Pangolin network.  | none required  | yes  |  |
-| Modified existing app | [Forgejo](https://codeberg.org/forgejo/forgejo) |  13.0.4 | Self-hosted lightweight Git server  |  8195 | yes  | Removed dependence on PostgreSQL.  |
-| Modified existing app | [Outline](https://github.com/outline/outline) |  1.2.0 | Team knowledge and wiki base.  |  8404 | yes  | Updated Docker image version for PostgreSQL from `16-alpine` to `16.9-alpine` and Redis from `7-alpine` to `8.4.0-alpine`.  |
+| Custom app  | [Pangolin Newt client](https://github.com/fosrl/newt)  |  1.10.1 | Connect your site (machine) to your Pangolin network.  | none required  | yes  |  |
+| Modified existing app | [Forgejo](https://codeberg.org/forgejo/forgejo) |  14.0.2 | Self-hosted lightweight Git server  |  8195 | yes  | Removed dependence on PostgreSQL.  |
+| Modified existing app | [Outline](https://github.com/outline/outline) |  1.450 | Team knowledge and wiki base.  |  8404 | yes  | Updated Docker image version for PostgreSQL from `16-alpine` to `16.9-alpine` and Redis from `7-alpine` to `8.4.0-alpine`. Changed settings to allow large attachments.  |
