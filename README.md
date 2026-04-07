@@ -9,10 +9,11 @@ This is my own [Runtipi](https://runtipi.io/) appstore. Some are custom apps (no
 > **USE AT YOUR OWN RISK!!!**
 
 
-## Apps available (3)
+## Apps available (4)
 
 |  Type  |  Name  |  Docker image version  |  Description  |  Port  |  Has dynamic file  |  Notes  |
 | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
 | Custom app  | [Pangolin Newt client](https://github.com/fosrl/newt)  |  1.11.0 | Connect your site (machine) to your Pangolin network.  | none required  | yes  |  |
 | Modified existing app | [Forgejo](https://codeberg.org/forgejo/forgejo) |  14.0.3 | Self-hosted lightweight Git server  |  8195 | yes  | Removed dependence on PostgreSQL.  |
+| Modified existing app | [Gotify](https://gotify.net/) |  2.9.1 | A simple server for sending and receiving messages.  |  8129 | yes  | Removed username and password variable on installation, as it didn't work.  |
 | Modified existing app | [Outline](https://github.com/outline/outline) |  1.6.1 | Team knowledge and wiki base.  |  8404 | yes  | Updated Docker image version for PostgreSQL from `16-alpine` to `16.9-alpine` and Redis from `7-alpine` to `8.4.0-alpine`. Changed settings to allow large attachments.  |
