@@ -5,16 +5,7 @@
       "image": "gotify/server:2.9.1",
       "isMain": true,
       "internalPort": 80,
-      "environment": [
-        {
-          "key": "GOTIFY_DEFAULTUSER_NAME",
-          "value": "${GOTIFY_DEFAULTUSER_NAME}"
-        },
-        {
-          "key": "GOTIFY_DEFAULTUSER_PASS",
-          "value": "${GOTIFY_DEFAULTUSER_PASS}"
-        }
-      ],
+      "environment": [ ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data",
@@ -29,7 +20,7 @@
       "services": [
         {
           "name": "gotify",
-          "image": "gotify/server-arm64:2.6.3"
+          "image": "gotify/server-arm64:2.9.1"
         }
       ]
     }
