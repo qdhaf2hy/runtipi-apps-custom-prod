@@ -1,9 +1,8 @@
-version: "3.9"
 services:
   pangolin-newt-client:
     container_name: pangolin-newt-client
-    image: fosrl/newt:1.11.0
-    restart: unless-stopped
+    image: fosrl/newt:1.12.0
+    restart: always
     network_mode: host
     environment:
       - PANGOLIN_ENDPOINT=${PANGOLIN_ENDPOINT}
