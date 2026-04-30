@@ -1,7 +1,7 @@
 services:
   pangolin-newt-client:
     container_name: pangolin-newt-client
-    image: fosrl/newt:1.12.2
+    image: fosrl/newt:1.12.3
     restart: always
     network_mode: host
     environment:
