@@ -1,7 +1,7 @@
 services:
   outline:
     container_name: outline
-    image: outlinewiki/outline:1.7.1
+    image: outlinewiki/outline:1.8.0
     restart: unless-stopped
     environment:
       - DATABASE_URL=postgres://outline:${OUTLINE_PG_PASSWORD}@outline-postgres:5432/outline
@@ -47,7 +47,7 @@ services:
       runtipi.managed: true
   outline-redis:
     container_name: outline-redis
-    image: redis:8.6.3-alpine
+    image: redis:8.8.0-alpine
     restart: unless-stopped
     networks:
       - tipi_main_network
