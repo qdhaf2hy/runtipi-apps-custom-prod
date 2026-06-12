@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "forgejo",
-  "tipi_version": 11,
-  "version": "15.0.2",
+  "tipi_version": 12,
+  "version": "15.0.3",
   "categories": ["development"],
   "description": "Forgejo is a self-hosted lightweight software forge. Easy to install and low maintenance, it just does the job.",
   "short_desc": "Beyond coding. We forge. · Lightweight and performant · Guaranteed 100% Free Software",
@@ -16,6 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1748340933545,
-  "updated_at": 1778622384636,
+  "updated_at": 1781223880681,
   "min_tipi_version": "4.5.0"
 }

@@ -1,7 +1,7 @@
 services:
   outline:
     container_name: outline
-    image: outlinewiki/outline:1.8.0
+    image: outlinewiki/outline:1.8.1
     restart: unless-stopped
     environment:
       - DATABASE_URL=postgres://outline:${OUTLINE_PG_PASSWORD}@outline-postgres:5432/outline
